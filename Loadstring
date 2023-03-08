@@ -1,0 +1,1 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LuizTechTV1/AshuraForRoblox/main/MainScript", true))()
