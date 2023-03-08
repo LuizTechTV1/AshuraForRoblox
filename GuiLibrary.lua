@@ -1,5 +1,4 @@
-if shared.AshuraExecuted then
-	local GuiLibrary = {}
+    local GuiLibrary = {}
 
 	local tween = game:GetService("TweenService")
 	local tweeninfo = TweenInfo.new
@@ -2635,6 +2634,7 @@ if shared.AshuraExecuted then
 					updateSectionFrame()
 					UpdateSize()
 					function labelFunctions:UpdateLabel(newText)
+					
 						if label.Text ~= "  "..newText then
 							label.Text = "  "..newText
 						end
@@ -2648,4 +2648,4 @@ if shared.AshuraExecuted then
 		return Tabs
 	end
 	return GuiLibrary
-end
+
