@@ -249,7 +249,7 @@ task.spawn(function()
 end)
 
 local win = GuiLibrary:CreateWindow({
-	["Title"] = "Ashura V1",
+	["Title"] = "R-Ashura V1",
 	["Theme"] = "BloodTheme"
 })
 
