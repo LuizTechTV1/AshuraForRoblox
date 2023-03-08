@@ -1,1 +1,0 @@
--- be a patience, if you not be patience then, be jealous
