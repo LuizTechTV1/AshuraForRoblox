@@ -256,7 +256,7 @@ task.spawn(function()
 end)
 
 local win = GuiLibrary:CreateWindow({
-	["Title"] = "Ashura V1.2.5",
+	["Title"] = "Ashura V1.1",
 	["Theme"] = "BloodTheme"
 })
 
@@ -498,6 +498,8 @@ runcode(function()
 	})
 end)
 
+--[[
+####### Fixing #######
 runcode(function()
 	local NameEsp = {["Enabled"] = false}
 	Sections["Players"].NewToggle({
@@ -552,7 +554,9 @@ end
 end
 end)
 end)
+--]]
 
+-- Special Thanks To Moreei And 8mpX For This
 runcode(function()
    local gamesound = require(game:GetService("ReplicatedStorage").TS.sound["game-sound"]).GameSound
 	local CustomSound = {["Enabled"] = false}
@@ -599,4 +603,3 @@ runcode(function()
 		["InfoText"] = "Stealed From RektSky Now What."
 	})
 end)
-
