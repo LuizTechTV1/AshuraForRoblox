@@ -2,8 +2,15 @@
 local GuiLibrary = shared.GuiLibrary
 
 local players = game:GetService("Players")
-local lplr = players.LocalPlayer
-local cam = game:GetService("Workspace").CurrentCamera
+local lplr = game:GetService("Players").LocalPlayer
+local char = lplr.Character
+local hrp = char.HumanoidRootPart
+local hmd = char.Humanoid
+local cam = workspace.CurrentCamera
+local RunService = game:GetService("RunService")
+local Client = require(game:GetService("ReplicatedStorage").TS.remotes).default.Client
+local uis = game:GetService("UserInputService")
+
 local modules = {}
 
 local function isAlive(plr)
@@ -249,7 +256,7 @@ task.spawn(function()
 end)
 
 local win = GuiLibrary:CreateWindow({
-	["Title"] = "Ashura V1.1",
+	["Title"] = "Ashura V1.2.5",
 	["Theme"] = "BloodTheme"
 })
 
@@ -499,7 +506,7 @@ runcode(function()
 			NameEsp["Enabled"] = callback
 			_G.Disabled = NameEsp["Enabled"]
 		end,
-		["InfoText"] = "Prevents taking fall damage."
+		["InfoText"] = "Shows Names In Games For Esp"
 	})
 local esp_settings = { ---- table for esp settings 
     textsize = 14,
@@ -544,5 +551,52 @@ for i,v in pairs (game:GetService("Players"):GetPlayers()) do
 end
 end
 end)
+end)
+
+runcode(function()
+   local gamesound = require(game:GetService("ReplicatedStorage").TS.sound["game-sound"]).GameSound
+	local CustomSound = {["Enabled"] = false}
+	Sections["Players"].NewToggle({
+		["Name"] = "CustomSounds",
+		["Function"] = function(callback)
+			CustomSound["Enabled"] = callback
+			getgenv().mcsounds = CustomSound["Enabled"]
+        if getgenv().mcsounds then
+            spawn(function()
+                lplr.leaderstats.Bed:GetPropertyChangedSignal("Value"):Connect(yesyesbed)
+            end)
+            spawn(function()
+                Client:WaitFor("BedwarsBedBreak"):andThen(function(p13)
+                    p13:Connect(function(p14)
+                        local sound = Instance.new("Sound")
+                        sound.Parent = workspace
+                        sound.SoundId = 535716488
+                        sound:Play()
+                        wait(4)
+                        sound:remove()
+                    end)
+                end)
+            end)
+            local oldsounds = gamesound
+            local newsounds = gamesound
+            newsounds.UI_CLICK = "rbxassetid://535716488"
+            newsounds.PICKUP_ITEM_DROP = "rbxassetid://535716488"
+            newsounds.KILL = "rbxassetid://1053296915"
+            newsounds.ERROR_NOTIFICATION = ""
+            newsounds.DAMAGE_1 = "rbxassetid://6361963422"
+            newsounds.DAMAGE = "rbxassetid://6361963422"
+            newsounds.DAMAGE_2 = "rbxassetid://6361963422"
+            newsounds.DAMAGE_3 = "rbxassetid://6361963422"
+            newsounds.SWORD_SWING_1 = ""
+            newsounds.SWORD_SWING_2 = ""
+            newsounds.STATIC_HIT = "rbxassetid://6361963422"
+            newsounds.STONE_BREAK = "rbxassetid://6496157434"
+            gamesound = newsounds
+        else
+            gamesound = oldsounds
+        end
+		end,
+		["InfoText"] = "Stealed From RektSky Now What."
+	})
 end)
 
