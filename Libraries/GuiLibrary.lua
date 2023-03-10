@@ -5,16 +5,15 @@
 	local input = game:GetService("UserInputService")
 	local run = game:GetService("RunService")
 
-    local function playSound(id, volume) 
-    local sound = Instance.new("Sound")
-    sound.Parent = workspace
-    sound.SoundId = id
-    sound.PlayOnRemove = true 
-    if volume then 
-        sound.Volume = volume
-    end
-    sound:Destroy()
-    end
+    local function playSound(id)
+local sound = Instance.new("Sound")
+sound.SoundId = id
+sound.Looped = false
+sound.Parent = workspace
+sound:Play()
+wait(0.80)
+sound:Destroy()
+end
     
 	local Utility = {}
 	local Objects = {}
@@ -705,7 +704,7 @@
 
 					btn.MouseButton1Click:Connect(function()
 						if not focusing then
-						playSound("rbxassetid://876939830", 1)
+						playSound("rbxassetid://876939830")
 							callback()
 							local c = sample:Clone()
 							c.Parent = btn
@@ -1111,7 +1110,7 @@
 					btn.MouseButton1Click:Connect(function()
 						if not focusing then
 							if toggled == false then
-							   playSound("rbxassetid://12741818582", 1)
+							   playSound("rbxassetid://12741818582")
 								game.TweenService:Create(img, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
 									ImageTransparency = 0
 								}):Play()
@@ -1132,7 +1131,7 @@
 								end
 								c:Destroy()
 							else
-							playSound("rbxassetid://12741822591", 1)
+							playSound("rbxassetid://12741822591")
 								game.TweenService:Create(img, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
 									ImageTransparency = 1
 								}):Play()
@@ -1221,14 +1220,14 @@
 							togName.Text = newText
 						end
 						if isTogOn then
-						playSound("rbxassetid://12741822591", 1)
+						playSound("rbxassetid://12741822591")
 							toggled = true
 							game.TweenService:Create(img, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
 								ImageTransparency = 0
 							}):Play()
 							pcall(callback, toggled)
 						else
-						playSound("rbxassetid://12741818582", 1)
+						playSound("rbxassetid://12741818582")
 							toggled = false
 							game.TweenService:Create(img, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
 								ImageTransparency = 1
