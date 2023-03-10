@@ -1,1 +1,1 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/LuizTechTV1/AshuraForRoblox/main/MainScript", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LuizTechTV1/RemakeAshura/main/MainScript", true))()
