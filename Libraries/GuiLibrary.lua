@@ -5,16 +5,6 @@
 	local input = game:GetService("UserInputService")
 	local run = game:GetService("RunService")
 
-    local function playSound(id)
-local sound = Instance.new("Sound")
-sound.SoundId = id
-sound.Looped = false
-sound.Parent = workspace
-sound:Play()
-wait(0.80)
-sound:Destroy()
-end
-    
 	local Utility = {}
 	local Objects = {}
 	function GuiLibrary:DraggingEnabled(frame, parent)
@@ -704,7 +694,6 @@ end
 
 					btn.MouseButton1Click:Connect(function()
 						if not focusing then
-						playSound("rbxassetid://876939830")
 							callback()
 							local c = sample:Clone()
 							c.Parent = btn
@@ -788,8 +777,6 @@ end
 				end
 
 				function Elements.NewTextBox(argstable)
-				
-				-- No Idea How To Put Sound On It, Im Like It Silence Click, Now Cry About it
 					local tname = argstable["Name"]
 					local tTip = argstable["InfoText"] or ""
 					local callback = argstable["Function"]
@@ -1110,7 +1097,6 @@ end
 					btn.MouseButton1Click:Connect(function()
 						if not focusing then
 							if toggled == false then
-							   playSound("rbxassetid://12741818582")
 								game.TweenService:Create(img, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
 									ImageTransparency = 0
 								}):Play()
@@ -1131,7 +1117,6 @@ end
 								end
 								c:Destroy()
 							else
-							playSound("rbxassetid://12741822591")
 								game.TweenService:Create(img, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
 									ImageTransparency = 1
 								}):Play()
@@ -1220,14 +1205,12 @@ end
 							togName.Text = newText
 						end
 						if isTogOn then
-						playSound("rbxassetid://12741822591")
 							toggled = true
 							game.TweenService:Create(img, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
 								ImageTransparency = 0
 							}):Play()
 							pcall(callback, toggled)
 						else
-						playSound("rbxassetid://12741818582")
 							toggled = false
 							game.TweenService:Create(img, TweenInfo.new(0.11, Enum.EasingStyle.Linear,Enum.EasingDirection.In), {
 								ImageTransparency = 1
