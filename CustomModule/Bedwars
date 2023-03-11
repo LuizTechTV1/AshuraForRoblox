@@ -591,8 +591,8 @@ runcode(function()
             newsounds.DAMAGE = "rbxassetid://6361963422"
             newsounds.DAMAGE_2 = "rbxassetid://6361963422"
             newsounds.DAMAGE_3 = "rbxassetid://6361963422"
-            newsounds.SWORD_SWING_1 = ""
-            newsounds.SWORD_SWING_2 = ""
+            newsounds.SWORD_SWING_1 = "rbxassetid://608537390"
+            newsounds.SWORD_SWING_2 = "rbxassetid://608537390"
             newsounds.STATIC_HIT = "rbxassetid://6361963422"
             newsounds.STONE_BREAK = "rbxassetid://6496157434"
             gamesound = newsounds
